@@ -4,25 +4,25 @@ import gui.Mouse;
 import gui.Master;
 
 public class BouncingSimple_TooLow implements GuiSimple {
-    private double ballHeight;
-    private double velocity;
+    private double _ballHeight;
+    private double _velocity;
 
     public void setup(Draw screen) {
-        ballHeight = 50.0;
-        velocity = 0.0;
+        _ballHeight = 50.0;
+        _velocity = 0.0;
     }
 
     public void draw(Draw screen, Mouse mouse) {
         screen.clear();
-        screen.circle(200.0, ballHeight, 10);
+        screen.circle(200.0, _ballHeight, 10);
 
-        if (ballHeight > 400.0) {
-            velocity *= -1.0;
+        if (_ballHeight > 400.0) {
+            _velocity *= -1.0;
         }
 
-        velocity += 0.3;
-        ballHeight += velocity;
-        System.out.println(ballHeight + " " + velocity);
+        _velocity += 0.3;
+        _ballHeight += _velocity;
+        System.out.println(_ballHeight + " " + _velocity);
     }
 
     public static void main(String[] args) {

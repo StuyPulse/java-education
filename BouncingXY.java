@@ -29,7 +29,7 @@ public class BouncingXY implements GuiSimple {
         }
 
         if (_x > 400.0 || _x < 0.0) {
-            _vx *= -1;
+            _vx *= -1.0;
         }
 
         _x += _vx;

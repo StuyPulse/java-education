@@ -4,18 +4,18 @@ import gui.Mouse;
 import gui.Master;
 
 public class BouncingClassy implements GuiSimple {
-    private Ball ball;
+    private Ball _ball;
 
     public void setup(Draw screen) {
-        ball = new Ball(200.0, 50.0);
-        ball.setVx(2.0);
+        _ball = new Ball(200.0, 50.0);
+        _ball.setVx(2.0);
     }
 
     public void draw(Draw screen, Mouse mouse) {
         screen.clear();
-        ball.paint(screen);
+        _ball.paint(screen);
 
-        ball.update();
+        _ball.update();
     }
 
     public static void main(String[] args) {
