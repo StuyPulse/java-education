@@ -14,17 +14,14 @@ import javafx.event.ActionEvent;
 public class Master extends Application {
     private Canvas _canvas;
 
-    private Draw _draw;
-    private Mouse _mouse;
-
     private static GuiSimple runner;
     private Timeline _timeline;
 
     @Override
     public void start(Stage stage) {
         Platform.setImplicitExit(true);
-        _mouse = new Mouse();
-        _draw = new Draw(stage, _mouse, runner.getClass().getName());
+        runner._mouse = new Mouse();
+        runner._draw = new Draw(stage, runner._mouse, runner.getClass().getName());
 
         _timeline = new Timeline();
         _timeline.setCycleCount(Timeline.INDEFINITE);
@@ -35,14 +32,14 @@ public class Master extends Application {
 
                 @Override
                 public void handle(ActionEvent ae) {
-                    _mouse.clicked = _mouse.lastClickTime > lastFrame;
-                    runner.draw(_draw, _mouse);
+                    runner._mouse.clicked = runner._mouse.lastClickTime > lastFrame;
+                    runner.draw();
                     lastFrame = System.currentTimeMillis();
                 }
             });
         _timeline.getKeyFrames().add(tick);
 
-        runner.setup(_draw);
+        runner.setup();
 
         _timeline.play();
     }

@@ -1,4 +1,4 @@
-import gui.Draw;
+import gui.GuiSimple;
 
 // For use with BouncingClassy
 
@@ -18,7 +18,7 @@ public class Ball {
         _vx = newVx;
     }
 
-    public void paint(Draw screen) {
+    public void paint(GuiSimple screen) {
         screen.circle(_x, _y, 10);
     }
 

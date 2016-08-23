@@ -30,17 +30,31 @@ public class Draw {
         stage.setTitle(title);
         stage.setScene(s);
         stage.show();
-        root.setOnMouseMoved(new EventHandler<MouseEvent>() {
+        EventHandler<MouseEvent> mouseMotionHandler = new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     mouse.x = event.getSceneX();
                     mouse.y = event.getSceneY();
                 }
-            });
+            };
+        root.setOnMouseDragged(mouseMotionHandler);
+        root.setOnMouseMoved(mouseMotionHandler);
         root.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     mouse.lastClickTime = System.currentTimeMillis();
+                }
+            });
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    mouse.down = true;
+                }
+            });
+        root.setOnMouseReleased(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    mouse.down = false;
                 }
             });
     }
