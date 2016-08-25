@@ -21,7 +21,6 @@ public class BouncingSimple extends GuiSimple {
         }
 
         _ballHeight += _velocity;
-        //System.out.println(_ballHeight + " " + _velocity);
     }
 
     public static void main(String[] args) {
