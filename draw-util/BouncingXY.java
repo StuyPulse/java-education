@@ -1,5 +1,4 @@
 import gui.GuiSimple;
-import gui.Master;
 
 public class BouncingXY extends GuiSimple {
     private double _x;
@@ -17,8 +16,8 @@ public class BouncingXY extends GuiSimple {
     }
 
     public void draw() {
-        clear();
-        circle(_x, _y, 10);
+        screen.clear();
+        screen.circle(_x, _y, 10.0);
 
         if (_y > 400.0) {
             _vy *= -1.0;
@@ -35,6 +34,6 @@ public class BouncingXY extends GuiSimple {
     }
 
     public static void main(String[] args) {
-        Master.begin(args, new BouncingXY());
+        begin(new BouncingXY());
     }
 }

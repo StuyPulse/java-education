@@ -20,8 +20,8 @@ public class Master extends Application {
     @Override
     public void start(Stage stage) {
         Platform.setImplicitExit(true);
-        runner._mouse = new Mouse();
-        runner._draw = new Draw(stage, runner._mouse, runner.getClass().getName());
+        runner.mouse = new Mouse();
+        runner.screen = new Screen(stage, runner.mouse, runner.getClass().getName());
 
         _timeline = new Timeline();
         _timeline.setCycleCount(Timeline.INDEFINITE);
@@ -32,7 +32,7 @@ public class Master extends Application {
 
                 @Override
                 public void handle(ActionEvent ae) {
-                    runner._mouse.clicked = runner._mouse.lastClickTime > lastFrame;
+                    runner.mouse.clicked = runner.mouse.lastClickTime > lastFrame;
                     runner.draw();
                     lastFrame = System.currentTimeMillis();
                 }
@@ -49,8 +49,8 @@ public class Master extends Application {
         _timeline.stop();
     }
 
-    public static void begin(String[] args, GuiSimple run) {
+    public static void begin(GuiSimple run) {
         runner = run;
-        launch(args);
+        launch(new String[] {});
     }
 }

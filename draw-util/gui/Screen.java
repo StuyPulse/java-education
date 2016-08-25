@@ -9,14 +9,14 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 
-public class Draw {
+public class Screen {
     private Canvas _canvas;
     private GraphicsContext _ctx;
 
     private double _width;
     private double _height;
 
-    public Draw(Stage stage, Mouse mouse, String title) {
+    public Screen(Stage stage, Mouse mouse, String title) {
         Pane root = new Pane();
 
         _width = 400.0;

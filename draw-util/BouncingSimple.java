@@ -1,5 +1,4 @@
 import gui.GuiSimple;
-import gui.Master;
 
 public class BouncingSimple extends GuiSimple {
     private double _ballHeight;
@@ -11,8 +10,8 @@ public class BouncingSimple extends GuiSimple {
     }
 
     public void draw() {
-        clear();
-        circle(200.0, _ballHeight, 10.0);
+        screen.clear();
+        screen.circle(200.0, _ballHeight, 10.0);
 
         if (_ballHeight > 400.0) {
             _velocity *= -1.0;
@@ -24,6 +23,6 @@ public class BouncingSimple extends GuiSimple {
     }
 
     public static void main(String[] args) {
-        Master.begin(args, new BouncingSimple());
+        begin(new BouncingSimple());
     }
 }
