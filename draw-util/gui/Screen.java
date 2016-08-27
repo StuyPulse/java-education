@@ -1,6 +1,7 @@
 package gui;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -16,7 +17,7 @@ public class Screen {
     private double _width;
     private double _height;
 
-    public Screen(Stage stage, Mouse mouse, String title) {
+    public Screen(Stage stage, Mouse mouse, Keyboard keyboard, String title) {
         Pane root = new Pane();
 
         _width = 400.0;
@@ -25,11 +26,12 @@ public class Screen {
         _ctx = _canvas.getGraphicsContext2D();
         root.getChildren().add(_canvas);
 
-        Scene s = new Scene(root, _width, _height, Color.WHITE);
+        Scene scene = new Scene(root, _width, _height, Color.WHITE);
 
         stage.setTitle(title);
-        stage.setScene(s);
+        stage.setScene(scene);
         stage.show();
+
         EventHandler<MouseEvent> mouseMotionHandler = new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
@@ -56,6 +58,12 @@ public class Screen {
                 public void handle(MouseEvent event) {
                     mouse.down = false;
                 }
+            });
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, (event) -> {
+                keyboard.setKeyPressed(event.getCode(), true);
+            });
+        scene.addEventHandler(KeyEvent.KEY_RELEASED, (event) -> {
+                keyboard.setKeyPressed(event.getCode(), false);
             });
     }
 

@@ -11,6 +11,7 @@ public abstract class GuiSimple {
     // These will be given values in Master.start
     public Screen screen;
     public Mouse mouse;
+    public Keyboard keyboard;
 
     protected static void begin(GuiSimple prgm) {
         Master.begin(prgm);

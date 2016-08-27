@@ -19,7 +19,13 @@ public class Master extends Application {
     public void start(Stage stage) {
         Platform.setImplicitExit(true);
         runner.mouse = new Mouse();
-        runner.screen = new Screen(stage, runner.mouse, runner.getClass().getName());
+        runner.keyboard = new Keyboard();
+        runner.screen = new Screen(
+                stage,
+                runner.mouse,
+                runner.keyboard,
+                runner.getClass().getName()
+            );
 
         _timeline = new Timeline();
         _timeline.setCycleCount(Timeline.INDEFINITE);
