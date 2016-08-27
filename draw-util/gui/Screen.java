@@ -1,5 +1,9 @@
 package gui;
 
+import java.util.HashMap;
+
+import javafx.scene.image.Image;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.event.EventHandler;
@@ -14,10 +18,14 @@ public class Screen {
     private Canvas _canvas;
     private GraphicsContext _ctx;
 
+    private HashMap<String, Image> _imageCache;
+
     private double _width;
     private double _height;
 
     public Screen(Stage stage, Mouse mouse, Keyboard keyboard, String title) {
+        _imageCache = new HashMap<String, Image>();
+
         Pane root = new Pane();
 
         _width = 400.0;
@@ -92,6 +100,23 @@ public class Screen {
 
     public void rect(double x, double y, double width, double height) {
         _ctx.fillRect(x, y, width, height);
+    }
+
+    private Image imageAtPath(String path) {
+        Image img = _imageCache.get(path);
+        if (img == null) {
+            img = new Image(path);
+            _imageCache.put(path, img);
+        }
+        return img;
+    }
+
+    public void image(String path, double x, double y) {
+        _ctx.drawImage(imageAtPath(path), x, y);
+    }
+
+    public void image(String path, double x, double y, double w, double h) {
+        _ctx.drawImage(imageAtPath(path), x, y, w, h);
     }
 
     public double height() {
