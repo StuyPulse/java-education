@@ -12,8 +12,6 @@ import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 
 public class Master extends Application {
-    private Canvas _canvas;
-
     private static GuiSimple runner;
     private Timeline _timeline;
 
