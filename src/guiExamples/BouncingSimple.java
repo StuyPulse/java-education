@@ -1,6 +1,8 @@
+package guiExamples;
+
 import gui.GuiSimple;
 
-public class BouncingSimple_TooLow extends GuiSimple {
+public class BouncingSimple extends GuiSimple {
     private double _ballHeight;
     private double _velocity;
 
@@ -15,14 +17,14 @@ public class BouncingSimple_TooLow extends GuiSimple {
 
         if (_ballHeight > 400.0) {
             _velocity *= -1.0;
+        } else {
+            _velocity += 0.3;
         }
 
-        _velocity += 0.3;
         _ballHeight += _velocity;
-        System.out.println(_ballHeight + " " + _velocity);
     }
 
     public static void main(String[] args) {
-        begin(new BouncingSimple_TooLow());
+        begin(new BouncingSimple());
     }
 }

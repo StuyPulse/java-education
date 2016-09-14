@@ -1,3 +1,5 @@
+package guiExamples;
+
 import gui.GuiSimple;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;

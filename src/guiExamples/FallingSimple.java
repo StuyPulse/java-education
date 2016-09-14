@@ -1,3 +1,5 @@
+package guiExamples;
+
 import gui.GuiSimple;
 
 public class FallingSimple extends GuiSimple {

@@ -1,3 +1,5 @@
+package askExamples;
+
 import ask.Ask;
 
 public class DMV {

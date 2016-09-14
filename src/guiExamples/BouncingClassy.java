@@ -1,3 +1,5 @@
+package guiExamples;
+
 import gui.Screen;
 import gui.GuiSimple;
 

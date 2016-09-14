@@ -1,0 +1,70 @@
+<project name="javaEducation" default="dist" basedir=".">
+    <!--
+        Before running for the first time, run the following (but
+        use two dashes):
+        $ sudo update-alternatives -config java
+        $ sudo update-alternatives -config javac
+        and choose Java 8
+
+        jfxrt.jar file came from <JRE_HOME>/lib/ext/jfxrt.jar on a
+        Windows machine
+    -->
+    <property name="projectName" value="javaEducation" />
+    <property name="src.dir" value="src" />
+    <property name="build.dir" value="bin" />
+    <property name="build.ask.dir" value="${build.dir}/ask" />
+    <property name="build.gui.dir" value="${build.dir}/gui" />
+    <property name="dist.dir" value="dist" />
+
+    <property name="javafx" value="lib/jfxrt.jar" />
+
+    <path id="classpath">
+        <pathelement path="${javafx}" />
+        <pathelement path="${build.dir}" />
+    </path>
+
+    <target name="dist" depends="dist-ask, dist-gui" />
+
+    <target name="dist-ask" depends="init-dist">
+        <echo message="JARing the contents of ${build.ask.dir}. Remember to recompile if necessary" />
+        <jar jarfile="${dist.dir}/${projectName}Ask.jar" basedir="${build.ask.dir}" />
+    </target>
+
+    <target name="dist-gui" depends="init-dist">
+        <echo message="JARing the contents of ${build.gui.dir}. Remember to recompile if necessary" />
+        <jar jarfile="${dist.dir}/${projectName}Gui.jar" basedir="${build.gui.dir}" />
+    </target>
+
+    <target name="init-dist">
+        <mkdir dir="${dist.dir}" />
+    </target>
+
+    <target name="run">
+        <echo message="Running last build. Remember to recompile if necessary" />
+        <java classname="${class}"
+            classpathref="classpath"
+            dir="${build.dir}"
+            failonerror="true"
+            fork="true" />
+    </target>
+
+    <target name="compile" depends="init-bin">
+        <javac srcdir="${src.dir}"
+            destdir="bin"
+            source="1.8"
+            target="1.8"
+            verbose="true"
+            classpathref="classpath"
+            includeantruntime="false" />
+    </target>
+
+    <target name="init-bin">
+        <delete dir="${build.dir}" />
+        <mkdir dir="${build.dir}" />
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}" />
+        <delete dir="${dist.dir}" />
+    </target>
+</project>
