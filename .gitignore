@@ -1,2 +1,7 @@
 *~
 *.class
+.*.sw[a-z]
+Session.vim
+
+build/
+dist/
