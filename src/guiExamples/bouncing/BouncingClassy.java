@@ -1,4 +1,4 @@
-package guiExamples;
+package guiExamples.bouncing;
 
 import gui.Screen;
 import gui.GuiSimple;

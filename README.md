@@ -31,7 +31,7 @@ E.g.:
 
 ```
 $ ant compile
-$ ant run -Dclass=guiExamples.BouncingXY
+$ ant run -Dclass=guiExamples.bouncing.BouncingXY
 ```
 
 To generate JARs, compile and then run one of
