@@ -34,7 +34,7 @@ $ ant compile
 $ ant run -Dclass=guiExamples.bouncing.BouncingXY
 ```
 
-To generate JARs, compile and then run one of
+To generate JARs, first compile, and then run one of the following:
 
 ```
 $ ant dist-ask # Creates dist/ask.jar
