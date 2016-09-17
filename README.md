@@ -37,7 +37,7 @@ $ ant run -Dclass=guiExamples.bouncing.BouncingXY
 To generate JARs, first compile, and then run one of the following:
 
 ```
-$ ant dist-ask # Creates dist/ask.jar
-$ ant dist-gui # Creates dist/gui.jar
+$ ant dist-ask # Creates dist/javaEducationAsk.jar
+$ ant dist-gui # Creates dist/javaEducationGui.jar
 $ ant dist # Creates both
 ```
