@@ -24,10 +24,8 @@ clean:
 	rm -rf $(BIN)
 
 dist: distclean init-dist
-	cd $(BIN_GUI); \
-	jar cf $(DIST)/Gui.jar *.class
-	cd $(BIN_ASK); \
-	jar cf $(DIST)/Ask.jar *.class
+	jar cf $(DIST)/Gui.jar $(BIN_GUI)
+	jar cf $(DIST)/Ask.jar $(BIN_ASK)
 
 distclean:
 	rm -rf $(DIST)
