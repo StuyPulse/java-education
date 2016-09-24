@@ -15,6 +15,9 @@ which could be written by or with the newbies during newbie education.
 
 ### Building and running
 
+
+#### Ant:
+
 To compile:
 
 ```
@@ -40,4 +43,31 @@ To generate JARs, first compile, and then run one of the following:
 $ ant dist-ask # Creates dist/javaEducationAsk.jar
 $ ant dist-gui # Creates dist/javaEducationGui.jar
 $ ant dist # Creates both
+```
+
+#### Make:
+
+To compile:
+
+```
+$ make
+```
+
+To run:
+
+```
+$ make run class=<CLASS>
+```
+
+E.g.:
+
+```
+$ make
+$ make run class=guiExamples.bouncing.BouncingXY
+```
+
+To generate JARs, first compile, and then run the following:
+
+```
+$ make dist # Creates dist/Ask.jar and dist/Gui.jar
 ```

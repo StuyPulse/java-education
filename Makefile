@@ -15,8 +15,6 @@ CLASSPATH = $(BIN):$(JAVAFX)
 JAVA_FLAGS = -g -d $(BIN) -cp $(CLASSPATH)
 COMPILE = $(JAVAC) $(JAVA_FLAGS)
 
-RUN = $(JAVA)
-
 .DEFAULT_GOAL := all
 
 all: clean init-bin
