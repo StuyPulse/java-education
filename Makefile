@@ -7,8 +7,8 @@ DIST = $(PROJECT_ROOT)/dist
 SRC = $(PROJECT_ROOT)/src
 
 BIN = $(PROJECT_ROOT)/bin
-BIN_ASK = $(BIN)/ask
-BIN_GUI = $(BIN)/gui
+ASK = ask
+GUI = gui
 
 JAVAC = javac
 CLASSPATH = $(BIN):$(JAVAFX)
@@ -24,8 +24,8 @@ clean:
 	rm -rf $(BIN)
 
 dist: distclean init-dist
-	jar cf $(DIST)/Gui.jar $(BIN_GUI)
-	jar cf $(DIST)/Ask.jar $(BIN_ASK)
+	jar cf $(DIST)/Gui.jar -C $(BIN) $(GUI)
+	jar cf $(DIST)/Ask.jar -C $(BIN) $(ASK)
 
 distclean:
 	rm -rf $(DIST)
