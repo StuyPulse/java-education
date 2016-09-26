@@ -74,7 +74,7 @@ $ make dist # Creates dist/Ask.jar and dist/Gui.jar
 
 ---
 
-##### What's the `LICENSE` about?
+#### What's the `LICENSE` about?
 
 It's called the [MIT License](http://choosealicense.com/licenses/mit/).
 We'd love for other people and teams to use this project, and the MIT License
