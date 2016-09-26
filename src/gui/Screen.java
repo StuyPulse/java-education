@@ -23,7 +23,7 @@ public class Screen {
     private double _width;
     private double _height;
 
-    public Screen(Stage stage, Mouse mouse, Keyboard keyboard, String title) {
+    public Screen(Stage stage, final Mouse mouse, final Keyboard keyboard, String title) {
         _imageCache = new HashMap<String, Image>();
 
         Pane root = new Pane();
@@ -41,38 +41,44 @@ public class Screen {
         stage.show();
 
         EventHandler<MouseEvent> mouseMotionHandler = new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    mouse.x = event.getSceneX();
-                    mouse.y = event.getSceneY();
-                }
-            };
+            @Override
+            public void handle(MouseEvent event) {
+                mouse.x = event.getSceneX();
+                mouse.y = event.getSceneY();
+            }
+        };
         root.setOnMouseDragged(mouseMotionHandler);
         root.setOnMouseMoved(mouseMotionHandler);
         root.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    mouse.lastClickTime = System.currentTimeMillis();
-                }
-            });
+            @Override
+            public void handle(MouseEvent event) {
+                mouse.lastClickTime = System.currentTimeMillis();
+            }
+        });
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    mouse.down = true;
-                }
-            });
+            @Override
+            public void handle(MouseEvent event) {
+                mouse.down = true;
+            }
+        });
         root.setOnMouseReleased(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    mouse.down = false;
-                }
-            });
-        scene.addEventHandler(KeyEvent.KEY_PRESSED, (event) -> {
+            @Override
+            public void handle(MouseEvent event) {
+                mouse.down = false;
+            }
+        });
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
                 keyboard.setKeyPressed(event.getCode(), true);
-            });
-        scene.addEventHandler(KeyEvent.KEY_RELEASED, (event) -> {
+            }
+        });
+        scene.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
                 keyboard.setKeyPressed(event.getCode(), false);
-            });
+            }
+        });
     }
 
     public void setColor(Color color) {
