@@ -24,8 +24,8 @@ clean:
 	rm -rf $(BIN)
 
 dist: distclean init-dist
-	jar cf $(DIST)/Gui.jar -C $(BIN) $(GUI)
-	jar cf $(DIST)/Ask.jar -C $(BIN) $(ASK)
+	jar cf $(DIST)/gui.jar -C $(BIN) $(GUI)
+	jar cf $(DIST)/ask.jar -C $(BIN) $(ASK)
 
 distclean:
 	rm -rf $(DIST)
