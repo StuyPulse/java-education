@@ -27,13 +27,14 @@
     <target name="dist" depends="dist-ask, dist-gui" />
 
     <target name="dist-ask" depends="init-dist">
-        <echo message="JARing the contents of ${build.ask.dir}. Remember to recompile if necessary" />
-        <jar jarfile="${dist.dir}/ask.jar" basedir="${build.ask.dir}" />
+        <!-- TODO: Make dist-ask and dist-gui JAR only one of gui, ask and not both -->
+        <echo message="JARing the contents of ${build.dir}. Remember to recompile if necessary" />
+        <jar jarfile="${dist.dir}/ask.jar" basedir="${build.dir}" />
     </target>
 
     <target name="dist-gui" depends="init-dist">
         <echo message="JARing the contents of ${build.gui.dir}. Remember to recompile if necessary" />
-        <jar jarfile="${dist.dir}/gui.jar" basedir="${build.gui.dir}" />
+        <jar jarfile="${dist.dir}/gui.jar" basedir="${build.dir}" />
     </target>
 
     <target name="init-dist">
