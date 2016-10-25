@@ -3,7 +3,7 @@ package gui;
 import javafx.scene.paint.Color;
 
 public abstract class GuiSimple {
-    abstract public void setup();
+    public void setup() {}
     abstract public void draw();
 
     // Exclude _ prefix because I think that could
